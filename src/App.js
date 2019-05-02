@@ -4,7 +4,7 @@ import './App.scss';
 class App extends React.Component {
 
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       base: 'GBP',
@@ -56,74 +56,11 @@ class App extends React.Component {
           <h1>Exchange Rate Finder</h1>
           <div className="currencySelector">
             <select name="base" value={this.state.base} onChange={this.updateBase}>
-              <option value="GBP">GBP</option>
-              <option value="USD">USD</option>
-              <option value="EUR">EUR</option>
-              <option value="BGN">BGN</option>
-              <option value="NZD">NZD</option>
-              <option value="ILS">ILS</option>
-              <option value="RUB">RUB</option>
-              <option value="CAD">CAD</option>
-              <option value="PHP">PHP</option>
-              <option value="CHF">CHF</option>
-              <option value="AUD">AUD</option>
-              <option value="JPY">JPY</option>
-              <option value="TRY">TRY</option>
-              <option value="HKD">HKD</option>
-              <option value="MYR">MYR</option>
-              <option value="HRK">HRK</option>
-              <option value="CZK">CZK</option>
-              <option value="IDR">IDR</option>
-              <option value="DKK">DKK</option>
-              <option value="NOK">NOK</option>
-              <option value="HUF">HUF</option>
-              <option value="MXN">MXN</option>
-              <option value="THB">THB</option>
-              <option value="ISK">ISK</option>
-              <option value="ZAR">ZAR</option>
-              <option value="BRL">BRL</option>
-              <option value="SGD">SGD</option>
-              <option value="PLN">PLN</option>
-              <option value="INR">INR</option>
-              <option value="KRW">KRW</option>
-              <option value="RON">RON</option>
-              <option value="CNY">CNY</option>
-              <option value="SEK">SEK</option>
+              <Options />
             </select>
             to
             <select name="to" value={this.state.to} onChange={this.updateTo}>
-              <option value="EUR">EUR</option>
-              <option value="USD">USD</option>
-              <option value="BGN">BGN</option>
-              <option value="NZD">NZD</option>
-              <option value="ILS">ILS</option>
-              <option value="RUB">RUB</option>
-              <option value="CAD">CAD</option>
-              <option value="PHP">PHP</option>
-              <option value="CHF">CHF</option>
-              <option value="AUD">AUD</option>
-              <option value="JPY">JPY</option>
-              <option value="TRY">TRY</option>
-              <option value="HKD">HKD</option>
-              <option value="MYR">MYR</option>
-              <option value="HRK">HRK</option>
-              <option value="CZK">CZK</option>
-              <option value="IDR">IDR</option>
-              <option value="DKK">DKK</option>
-              <option value="NOK">NOK</option>
-              <option value="HUF">HUF</option>
-              <option value="MXN">MXN</option>
-              <option value="THB">THB</option>
-              <option value="ISK">ISK</option>
-              <option value="ZAR">ZAR</option>
-              <option value="BRL">BRL</option>
-              <option value="SGD">SGD</option>
-              <option value="PLN">PLN</option>
-              <option value="INR">INR</option>
-              <option value="KRW">KRW</option>
-              <option value="RON">RON</option>
-              <option value="CNY">CNY</option>
-              <option value="SEK">SEK</option>
+              <Options />
             </select>
           </div>
           <p className="exchangeRate">1 {this.state.base} = {this.state.rate} {this.state.to}</p>
@@ -132,4 +69,57 @@ class App extends React.Component {
   }
 }
 
+class Options extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      currencies: [
+        'GBP',
+        'USD',
+        'EUR',
+        'CAD',
+        'AUD',
+        'BGN',
+        'NZD',
+        'ILS',
+        'RUB',
+        'PHP',
+        'CHF',
+        'JPY',
+        'TRY',
+        'HKD',
+        'MYR',
+        'HRK',
+        'CZK',
+        'IDR',
+        'DKK',
+        'NOK',
+        'HUF',
+        'MXN',
+        'THB',
+        'ISK',
+        'ZAR',
+        'BRL',
+        'SGD',
+        'PLN',
+        'INR',
+        'KRW',
+        'RON',
+        'CNY',
+        'SEK'
+      ]
+    }
+  }
+
+  render(){
+    return(
+      <>
+        {this.state.currencies.map((c) => {
+          return <option value={c}>{c}</option>
+        })}
+      </>
+    )
+  }
+}
 export default App;
